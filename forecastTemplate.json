@@ -1,0 +1,43 @@
+{
+    city: 'Armenia',
+    country: 'Colombia',
+    tempCelsius: 30,
+    condition: 'Partly cloudy',
+    conditionIcon: ' //cdn.weatherapi.com/weather/64x64/day/116.png',      
+    tempFeels: 33.3,
+    uv: 5,
+    forecastToday: [
+        {
+        tempCelsius: 15.7,
+        condition: 'Clear',
+        conditionIcon: ' //cdn.weatherapi.com/weather/64x64/night/113.png',
+        uv: 1
+        },
+        {
+        tempCelsius: 14.7,
+        condition: 'Patchy rain possible',
+        conditionIcon: ' //cdn.weatherapi.com/weather/64x64/day/176.png',  
+        uv: 3
+        },
+        {
+        tempCelsius: 20.6,
+        condition: 'Patchy rain possible',
+        conditionIcon: ' //cdn.weatherapi.com/weather/64x64/day/176.png',
+        uv: 5
+        },
+        {
+        tempCelsius: 17.8,
+        condition: 'Patchy rain possible',
+        conditionIcon: ' //cdn.weatherapi.com/weather/64x64/day/176.png',
+        uv: 4
+        }
+    ],
+    forecast: [
+        { date: '2023-04-25', weather: [Object
+            ]
+        },
+        { date: '2023-04-26', weather: [Object
+            ]
+        }
+    ]
+}
