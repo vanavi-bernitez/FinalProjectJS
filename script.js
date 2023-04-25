@@ -115,28 +115,6 @@ const initMap = () => {
 
 
 
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return map
 }
 
