@@ -43,11 +43,7 @@ const getWeather = async(lat, lng, days) => {
             'forecastToday': forecastEverySixHours,
             'forecast': forecastDaysProperties
         }
-
-        const showSpace = document.querySelector('#showWeatherData')
-        return showSpace.innerHTML(usedData);
-
-        // return usedData;
+        console.log(usedData)
 
     } catch (error) {
         console.error(error);

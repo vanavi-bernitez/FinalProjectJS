@@ -1,15 +1,31 @@
-#map {
-    height: 400px; 
-    width: 100%; 
-}
-
-#searchBox {
+/* 
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. 
+ */
+ #searchBox {
     height: 35px;
-    width: 200px;
+    width: 150px;
     margin-top: 12px;
     border-radius: 2px;
     border-style: hidden;
 }
+
+
+#map {
+    height: 400px; 
+    width: 100%;
+}
+  
+  /* 
+   * Optional: Makes the sample page fill the window. 
+   */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
 
 #infoWindow {
     color: #4285F4;
