@@ -1,71 +1,88 @@
-const initMap = () => {
-    const startMapOptions = {
-        zoom: 13,
-        center: {lat: 4.5350, lng: -75.6757}
-    };
-    const mapElement = document.querySelector('#map');
-    const map = new google.maps.Map(mapElement, startMapOptions);
-    const addMapMarker = (properties) => {
-        const mapMarker = new google.maps.Marker({
-            position: properties.coords,
-            map,            
-        })
-        return mapMarker;
-    };
-    const startMarker = addMapMarker({coords: startMapOptions.center});
-    const startInfoWindow = new google.maps.InfoWindow({
-        content: '<h2 id="infoWindow"> Hi. Welcome to Armenia! </h2>'
-    })
-    startMarker.addListener('click', () => {
-        startInfoWindow.open(map, startMarker)
-    })
-    const startSearchBoxOptions = {
-        types: ['cities']
-    }
-    const inputLocationElement = document.querySelector('#searchBox');
-    const searchBox = new google.maps.places.SearchBox(inputLocationElement, startSearchBoxOptions); 
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(inputLocationElement);
-    map.addListener('bounds_changed', () => {
-        searchBox.setBounds(map.getBounds());
-    })
-    let markers = [];
-    searchBox.addListener("places_changed", () => {
-      const places = searchBox.getPlaces();
-      if (places.length == 0) return;
-      markers.forEach((marker) => {
-        marker.setMap(null);
-      });
-      markers = [];
-      const bounds = new google.maps.LatLngBounds();
-      places.forEach((place) => {
-        if (!place.geometry || !place.geometry.location) {
-          console.log("Returned place contains no geometry");
-          return;
-        }
-        let latitude = place.geometry.location.lat();
-        let longitude = place.geometry.location.lng();
+import { getWeather } from "./modules/getWeather.js";
+let map;
 
-        console.log(latitude, longitude);
-    
-        markers.push(
-          new google.maps.Marker({
-            map,
-            title: place.name,
-            position: place.geometry.location,
-          })
-        );
-        if (place.geometry.viewport) {
-          bounds.union(place.geometry.viewport);
-        } else {
-          bounds.extend(place.geometry.location);
-        }
-      });      
-      map.fitBounds(bounds);
+async function initMap() {
+
+  const { Map } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
+  const { SearchBox } = await google.maps.importLibrary("places");
+
+  let latitude = 4.5350;
+  let longitude = -75.6757;
+  let forecastDays = 2;
+  
+  const position = { lat: latitude, lng: longitude };
+  map = new Map(document.querySelector("#map"), {
+    zoom: 13,
+    center: position,
+    mapId: "DEMO_MAP_ID",
+  });
+  const marker = new AdvancedMarkerView({
+    map: map,
+    position: position,
+  });
+  const startInfoWindow = new google.maps.InfoWindow({
+    content: '<h2 id="infoWindow"> Hi. Welcome to Armenia! </h2>'
+  });
+  marker.addListener('gmp-click', () => {
+    startInfoWindow.open(map, marker)
+  });
+
+  const startSearchBoxOptions = {
+    types: ['cities']
+  }
+  const searchElement = document.querySelector('#searchBox');
+  const searchBox = new SearchBox(searchElement, startSearchBoxOptions);
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(searchElement);
+  let markers = [];
+  searchBox.addListener("places_changed", () => {
+    const places = searchBox.getPlaces();
+    if (places.length == 0) return;
+    markers.forEach((marker) => {
+      marker.setMap(null);
     });
-    return map
+    markers = [];
+    const bounds = new google.maps.LatLngBounds();
+    places.forEach((place) => {
+      if (!place.geometry || !place.geometry.location) {
+        // Entered Place that was not suggested and pressed Enter key, or the Place Details request failed.
+        window.alert("No details available for input: '" + place.name + "'");
+        return;
+      }
+      markers.push(
+        new google.maps.Marker({
+          map,
+          title: place.name,
+          position: place.geometry.location,
+        })
+      );
+      if (place.geometry.viewport) {
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+      latitude = place.geometry.location.lat();
+      longitude = place.geometry.location.lng();
+      
+      console.log(latitude, longitude)
+      getWeather(latitude, longitude, forecastDays);
+    });
+    map.fitBounds(bounds);
+    
+
+  });
+
+  console.log(latitude, longitude)
+  getWeather(latitude, longitude, forecastDays);
 }
 
-window.initMap = initMap;
+initMap();
+
+
+
+
+
+
 
 
 
