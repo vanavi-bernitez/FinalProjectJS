@@ -9,7 +9,7 @@ async function initMap() {
 
   let latitude = 4.5350;
   let longitude = -75.6757;
-  let forecastDays = 2;
+  let forecastDays = 2 + 1 ;
   
   const position = { lat: latitude, lng: longitude };
   map = new Map(document.querySelector("#map"), {

@@ -45,6 +45,27 @@ const getWeather = async(lat, lng, days) => {
         }
         console.log(usedData)
 
+        const currentContainer = document.querySelector('#currentWeatherCont');
+        currentContainer.querySelector('#city').innerHTML = usedData.city;
+        currentContainer.querySelector('#country').innerHTML = usedData.country;
+        currentContainer.querySelector('#condition').innerHTML = usedData.condition;
+        const conditionIcon = currentContainer.querySelector('#conditionIcon');
+        conditionIcon.src = usedData.conditionIcon;
+        currentContainer.querySelector('#tempContent').innerHTML = usedData.tempCelsius;
+        currentContainer.querySelector('#tempFeelsContent').innerHTML = usedData.tempFeels;
+        currentContainer.querySelector('#uv').innerHTML = usedData.uv;
+
+
+
+
+
+        
+ 
+
+
+
+
+
     } catch (error) {
         console.error(error);
     }
