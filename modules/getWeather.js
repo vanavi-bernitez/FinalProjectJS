@@ -1,5 +1,4 @@
 const getWeather = async(lat, lng, days) => {
-
     try {
         const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=3d7ec4b4d6564156ab5152651232504&q=${lat},${lng}&days=${days}&aqi=no&alerts=no`)
         const data = await response.json();
@@ -33,7 +32,6 @@ const getWeather = async(lat, lng, days) => {
             forecastDaysProperties.push(propertiesForecast)
         })
 
-
         const usedData = {
             'city': data.location.name,
             'country': data.location.country,
@@ -46,11 +44,16 @@ const getWeather = async(lat, lng, days) => {
             'forecast': forecastDaysProperties
         }
 
-        console.log(usedData);
+        const showSpace = document.querySelector('#showWeatherData')
+        return showSpace.innerHTML(usedData);
+
+        // return usedData;
 
     } catch (error) {
         console.error(error);
     }
 }
 
-getWeather(4.5350, -75.6757, 2);
+export {getWeather}
+
+// getWeather(4.5350, -75.6757, 2);

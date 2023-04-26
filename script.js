@@ -1,10 +1,14 @@
-const initMap = () => {
+// import { getWeather } from "./modules/getWeather";
+
+window.addEventListener('load', () => {
+  let map;
+  const initMap = () => {
     const startMapOptions = {
         zoom: 13,
         center: {lat: 4.5350, lng: -75.6757}
     };
     const mapElement = document.querySelector('#map');
-    const map = new google.maps.Map(mapElement, startMapOptions);
+    map = new google.maps.Map(mapElement, startMapOptions);
     const addMapMarker = (properties) => {
         const mapMarker = new google.maps.Marker({
             position: properties.coords,
@@ -37,15 +41,21 @@ const initMap = () => {
       });
       markers = [];
       const bounds = new google.maps.LatLngBounds();
+      let latitude = place.geometry.location.lat();
+      let longitude = place.geometry.location.lng();
+      let forecastDays = 2;
+
       places.forEach((place) => {
         if (!place.geometry || !place.geometry.location) {
           console.log("Returned place contains no geometry");
           return;
         }
-        let latitude = place.geometry.location.lat();
-        let longitude = place.geometry.location.lng();
 
-        console.log(latitude, longitude);
+        latitude = place.geometry.location.lat();
+        longitude = place.geometry.location.lng();
+
+
+        
     
         markers.push(
           new google.maps.Marker({
@@ -59,13 +69,21 @@ const initMap = () => {
         } else {
           bounds.extend(place.geometry.location);
         }
-      });      
+      });   
+      console.log(latitude, longitude);   
       map.fitBounds(bounds);
     });
     return map
-}
+  }
 
-window.initMap = initMap;
+  window.initMap = initMap;
+});
+
+
+
+
+
+
 
 
 
