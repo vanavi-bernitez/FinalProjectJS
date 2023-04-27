@@ -1,5 +1,7 @@
 import { fillCurrentWeather } from "./fillCurrentWeather.js";
-import { fillTodayWeather } from "./fillTodayWeather.js";
+import { fillTodayWeather } from "./fillTodayWeather.js"
+import { fillTodayForecastWeather } from "./fillTodayForecastWeather.js";
+import { fillForecastWeather } from "./fillForecastWeather.js";
 
 const getWeather = async(lat, lng, days) => {
     try {
@@ -46,17 +48,17 @@ const getWeather = async(lat, lng, days) => {
             'forecastToday': forecastEverySixHours,
             'forecast': forecastDaysProperties
         }
+
         console.log(usedData)
 
         fillCurrentWeather(usedData);
         fillTodayWeather(forecastEverySixHours);
+        fillTodayForecastWeather(forecastDaysProperties);
+        fillForecastWeather(forecastDaysProperties);
 
-        
     } catch (error) {
         console.error(error);
     }
 }
 
 export {getWeather}
-
-// getWeather(4.5350, -75.6757, 2);

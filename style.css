@@ -68,4 +68,10 @@ html, body {
 
 #forecastCont {
     border-style: solid; 
+    display: flex;
+}
+
+#forecast {
+    border-style: solid;
+    display: flex;
 }

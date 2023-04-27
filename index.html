@@ -47,29 +47,27 @@
 
 
     <div class="sliderCont">
-      <input type="range" min="0" max="10" value="0" class="slider" id="forecastSlider">
+      <input type="range" min="0" max="9" value="0" class="slider" id="forecastSlider">
       <p id="forecastRangeValue">((Value))</p>
     </div>
 
 
     <div id="forecastCont">
-      <div class="eachForecast">
+      <div id="todayForecast" class="eachForecast">
         <p>Today</p>
-        <img id="todayConditionIcon" src="./images/loading.png" alt="weather condition" />
-        <p id="todayCondition">((Condition))</p>
+        <img id="todayForecastConditionIcon" src="./images/loading.png" alt="weather condition" />
+        <p id="todayForecastCondition">((Condition))</p>
         <div>
           <p class="left">Temperature</p>
-          <p class="right"><span id="todayTemperature">((Feels Temp))</span> °C</p>
+          <p class="right"><span id="todayForecastTemperature">((Feels Temp))</span> °C</p>
         </div>
         <div>
           <p class="left">UV</p>
-          <p id="todayUV" class="right">((uv))</p>
+          <p id="todayForecastUV" class="right">((uv))</p>
         </div>
       </div>
+      <div id="forecast"></div>
     </div>
-
-
-    
 
 
     <template id="todayWeatherTemplate">
@@ -87,18 +85,19 @@
       </div>
     </template>
 
+
     <template id="forecastTemplate">
       <div class="eachForecast" >
-        <p>((Date))</p>
-        <img id="todayConditionIcon" src="./images/loading.png" alt="weather condition" />
-        <p id="todayCondition">((Condition))</p>
+        <p id="forecastDate" >((Date))</p>
+        <img id="forecastConditionIcon" src="./images/loading.png" alt="weather condition" />
+        <p id="forecastCondition">((Condition))</p>
         <div>
           <p class="left">Temperature</p>
-          <p class="right"><span id="todayTemperature">((Feels Temp))</span> °C</p>
+          <p class="right"><span id="forecastTemperature">((Feels Temp))</span> °C</p>
         </div>
         <div>
           <p class="left">UV</p>
-          <p id="todayUV" class="right">((uv))</p>
+          <p id="forecastUV" class="right">((uv))</p>
         </div>
       </div>
     </template>
