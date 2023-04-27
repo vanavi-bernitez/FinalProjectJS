@@ -3,7 +3,7 @@ import { fillTodayWeather } from "./fillTodayWeather.js"
 import { fillTodayForecastWeather } from "./fillTodayForecastWeather.js";
 import { fillForecastWeather } from "./fillForecastWeather.js";
 
-const getWeather = async(lat, lng, days) => {
+const getWeatherForecast = async(lat, lng, days) => {
     try {
         const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=3d7ec4b4d6564156ab5152651232504&q=${lat},${lng}&days=${days}&aqi=no&alerts=no`)
         const data = await response.json();
@@ -61,4 +61,4 @@ const getWeather = async(lat, lng, days) => {
     }
 }
 
-export {getWeather}
+export { getWeatherForecast }

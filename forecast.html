@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <title>Forecast weather</title>
+    <link rel="stylesheet" type="text/css" href="./forecast.css" />
+    <script type="module" src="./forecast.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="./index.html">MAIN</a>
+      <a href="./history.html">HISTORY</a>
+    </header>
+
+    <h3>FORECAST LOCATION WEATHER</h3>
+
+    <div id="mapContainer">
+      <input id="searchBox" class="controls" type="text" placeholder="Search city" />
+      <div id="map"></div>
+    </div>
+    
+    <div id="displayedInformation">
+      <div id="currentWeatherCont">
+        <div>
+          <p id="city" >((City))</p>
+          <p id="country">((Country))</p>
+        </div>
+        <div>
+          <div> 
+            <img id="conditionIcon" src="./images/loading.png" alt="weather condition" />
+            <p id="temperature"><span id="tempContent">((Temperature))</span> °C</p>       
+          </div>
+          <div>
+            <p id="condition">((Condition))</p>
+          </div>
+          <div>
+            <div>
+              <p class="left">Feels like</p>
+              <p class="right"><span id="tempFeels">((Feels Temp))</span> °C</p>
+            </div>
+            <div>
+              <p class="left">UV</p>
+              <p id="uv" class="right">((uv))</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="rightMainContainer">
+        <div id="todayWeatherCont"></div>
+
+        <div class="sliderCont">
+          <input type="range" min="0" max="9" value="0" class="slider" id="forecastSlider">
+          <p id="forecastRangeValue">((Value))</p>
+        </div>
+
+        <div id="forecastCont">
+          <div id="todayForecast" class="eachForecast">
+            <p>Today</p>
+            <img id="todayForecastConditionIcon" src="./images/loading.png" alt="weather condition" />
+            <p id="todayForecastCondition">((Condition))</p>
+            <div>
+              <p class="left">Temperature</p>
+              <p class="right"><span id="todayForecastTemperature">((Feels Temp))</span> °C</p>
+            </div>
+            <div>
+              <p class="left">UV</p>
+              <p id="todayForecastUV" class="right">((uv))</p>
+            </div>
+          </div>
+          <div id="forecast"></div>
+        </div>
+      </div>
+    </div>
+
+    <template id="todayWeatherTemplate">
+      <div class="eachToday">
+        <img id="todayConditionIcon" src="./images/loading.png" alt="weather condition" />
+        <p id="todayCondition">((Condition))</p>
+        <div>
+          <p class="left">Temperature</p>
+          <p class="right"><span id="todayTemperature">((Temperature))</span> °C</p>
+        </div>
+        <div>
+          <p class="left">UV</p>
+          <p id="todayUV" class="right">((uv))</p>
+        </div>
+      </div>
+    </template>
+
+    <template id="forecastTemplate">
+      <div class="eachForecast" >
+        <p id="forecastDate" >((Date))</p>
+        <img id="forecastConditionIcon" src="./images/loading.png" alt="weather condition" />
+        <p id="forecastCondition">((Condition))</p>
+        <div>
+          <p class="left">Temperature</p>
+          <p class="right"><span id="forecastTemperature">((Feels Temp))</span> °C</p>
+        </div>
+        <div>
+          <p class="left">UV</p>
+          <p id="forecastUV" class="right">((uv))</p>
+        </div>
+      </div>
+    </template>
+    
+    <script>
+      (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+          key: "AIzaSyDwRGKbi094BjM8_a18eu1uoQkokMhhcnk",
+          v: "beta"
+      });
+    </script>
+  </body>
+</html>
