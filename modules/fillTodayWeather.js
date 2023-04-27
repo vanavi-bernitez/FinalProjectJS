@@ -1,7 +1,11 @@
 const fillTodayWeather = (forecastEverySixHours) => {
-    forecastEverySixHours.forEach((hour) => {
-        const todayTemplate = document.querySelector('#todayWeatherTemplate');
-        const todayContainer = document.querySelector('#todayWeatherCont')
+    const todayTemplate = document.querySelector('#todayWeatherTemplate');
+    const todayContainer = document.querySelector('#todayWeatherCont');
+    while (todayContainer.hasChildNodes()) {
+        todayContainer.removeChild(todayContainer.firstChild)
+    }
+               
+    forecastEverySixHours.forEach((hour) => {   
         const clonedTodayTemplate = todayTemplate.content.cloneNode(true);
         const todayConditionIcon = clonedTodayTemplate.querySelector('#todayConditionIcon');
         todayConditionIcon.src = hour.conditionIcon;

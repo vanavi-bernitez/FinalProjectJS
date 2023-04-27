@@ -10,9 +10,6 @@ async function initMap() {
   const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
   const { SearchBox } = await google.maps.importLibrary("places");
 
-  
-
-
   let forecastSlider = document.querySelector("#forecastSlider");
   let forecastRangeValue = document.querySelector("#forecastRangeValue");
   forecastRangeValue.innerHTML = forecastSlider.value;
