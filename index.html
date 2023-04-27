@@ -9,10 +9,12 @@
   <body>
     <h3>My Google Maps Demo</h3>
 
+
     <div id="mapContainer">
       <input id="searchBox" class="controls" type="text" placeholder="Search city" />
       <div id="map"></div>
     </div>
+    
 
     <div id="currentWeatherCont">
       <div>
@@ -22,16 +24,15 @@
       <div>
         <div> 
           <img id="conditionIcon" src="./images/loading.png" alt="weather condition" />
+          <p id="temperature"><span id="tempContent">((Temperature))</span> °C</p>       
+        </div>
+        <div>
           <p id="condition">((Condition))</p>
         </div>
         <div>
           <div>
-            <p class="left">Temperature</p>
-            <p id="temperature" class="right"><span id="tempContent">((Temperature))</span> °C</p>
-          </div>
-          <div>
             <p class="left">Feels like</p>
-            <p id="tempFeels" class="right"><span id="tempFeelsContent">((Feels Temp))</span> °C</p>
+            <p class="right"><span id="tempFeels">((Feels Temp))</span> °C</p>
           </div>
           <div>
             <p class="left">UV</p>
@@ -42,19 +43,63 @@
     </div>
 
 
-    <div id="todayWeatherCont">
+    <div id="todayWeatherCont"></div>
 
+
+    <div class="sliderCont">
+      <input type="range" min="0" max="10" value="0" class="slider" id="forecastSlider">
+      <p id="forecastRangeValue">((Value))</p>
     </div>
 
+
+    <div id="forecastCont">
+      <div class="eachForecast">
+        <p>Today</p>
+        <img id="todayConditionIcon" src="./images/loading.png" alt="weather condition" />
+        <p id="todayCondition">((Condition))</p>
+        <div>
+          <p class="left">Temperature</p>
+          <p class="right"><span id="todayTemperature">((Feels Temp))</span> °C</p>
+        </div>
+        <div>
+          <p class="left">UV</p>
+          <p id="todayUV" class="right">((uv))</p>
+        </div>
+      </div>
+    </div>
+
+
+    
+
+
     <template id="todayWeatherTemplate">
-
-
-
+      <div class="eachToday">
+        <img id="todayConditionIcon" src="./images/loading.png" alt="weather condition" />
+        <p id="todayCondition">((Condition))</p>
+        <div>
+          <p class="left">Temperature</p>
+          <p class="right"><span id="todayTemperature">((Temperature))</span> °C</p>
+        </div>
+        <div>
+          <p class="left">UV</p>
+          <p id="todayUV" class="right">((uv))</p>
+        </div>
+      </div>
     </template>
 
     <template id="forecastTemplate">
-      <div>
-    
+      <div class="eachForecast" >
+        <p>((Date))</p>
+        <img id="todayConditionIcon" src="./images/loading.png" alt="weather condition" />
+        <p id="todayCondition">((Condition))</p>
+        <div>
+          <p class="left">Temperature</p>
+          <p class="right"><span id="todayTemperature">((Feels Temp))</span> °C</p>
+        </div>
+        <div>
+          <p class="left">UV</p>
+          <p id="todayUV" class="right">((uv))</p>
+        </div>
       </div>
     </template>
     

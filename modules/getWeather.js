@@ -1,3 +1,6 @@
+import { fillCurrentWeather } from "./fillCurrentWeather.js";
+import { fillTodayWeather } from "./fillTodayWeather.js";
+
 const getWeather = async(lat, lng, days) => {
     try {
         const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=3d7ec4b4d6564156ab5152651232504&q=${lat},${lng}&days=${days}&aqi=no&alerts=no`)
@@ -45,27 +48,10 @@ const getWeather = async(lat, lng, days) => {
         }
         console.log(usedData)
 
-        const currentContainer = document.querySelector('#currentWeatherCont');
-        currentContainer.querySelector('#city').innerHTML = usedData.city;
-        currentContainer.querySelector('#country').innerHTML = usedData.country;
-        currentContainer.querySelector('#condition').innerHTML = usedData.condition;
-        const conditionIcon = currentContainer.querySelector('#conditionIcon');
-        conditionIcon.src = usedData.conditionIcon;
-        currentContainer.querySelector('#tempContent').innerHTML = usedData.tempCelsius;
-        currentContainer.querySelector('#tempFeelsContent').innerHTML = usedData.tempFeels;
-        currentContainer.querySelector('#uv').innerHTML = usedData.uv;
-
-
-
-
+        fillCurrentWeather(usedData);
+        fillTodayWeather(forecastEverySixHours);
 
         
- 
-
-
-
-
-
     } catch (error) {
         console.error(error);
     }
