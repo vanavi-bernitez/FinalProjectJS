@@ -25,8 +25,57 @@ html, body {
     padding: 0;
 }
 
-
-
 #infoWindow {
     color: #4285F4;
+}
+
+#mapContainer {
+    border-style: solid;
+}
+
+#displayedInformation {
+    display: flex;
+}
+
+#currentWeatherCont {
+    border-style: solid;
+}
+
+#todayWeatherCont {
+    border-style: solid;
+    display: flex;
+    justify-content: center;
+}
+
+.eachToday {
+    border-style: solid;
+}
+
+.sliderCont {
+    border-style: solid;
+    display: flex;
+}
+
+.slider {
+    width: 25vw;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+}
+
+.slider:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+#forecastCont {
+    border-style: solid; 
+    display: flex;
+}
+
+#forecast {
+    border-style: solid;
+    display: flex;
 }

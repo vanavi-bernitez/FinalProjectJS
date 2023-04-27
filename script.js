@@ -1,5 +1,8 @@
 import { getWeather } from "./modules/getWeather.js";
 let map;
+let latitude = 4.5350;
+let longitude = -75.6757;
+let forecastDays = 1;
 
 async function initMap() {
 
@@ -7,9 +10,21 @@ async function initMap() {
   const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
   const { SearchBox } = await google.maps.importLibrary("places");
 
-  let latitude = 4.5350;
-  let longitude = -75.6757;
-  let forecastDays = 2;
+  let forecastSlider = document.querySelector("#forecastSlider");
+  let forecastRangeValue = document.querySelector("#forecastRangeValue");
+  forecastRangeValue.innerHTML = forecastSlider.value;
+  forecastDays = forecastSlider.value
+
+  forecastSlider.oninput = function() {
+    forecastRangeValue.innerHTML = this.value;
+    forecastDays = parseInt(this.value) + 1;
+    getWeather(latitude, longitude, forecastDays);
+  }
+
+
+
+
+
   
   const position = { lat: latitude, lng: longitude };
   map = new Map(document.querySelector("#map"), {
@@ -65,6 +80,7 @@ async function initMap() {
       longitude = place.geometry.location.lng();
       
       console.log(latitude, longitude)
+
       getWeather(latitude, longitude, forecastDays);
     });
     map.fitBounds(bounds);

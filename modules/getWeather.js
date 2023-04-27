@@ -1,6 +1,11 @@
+import { fillCurrentWeather } from "./fillCurrentWeather.js";
+import { fillTodayWeather } from "./fillTodayWeather.js"
+import { fillTodayForecastWeather } from "./fillTodayForecastWeather.js";
+import { fillForecastWeather } from "./fillForecastWeather.js";
+
 const getWeather = async(lat, lng, days) => {
     try {
-        const response = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=3d7ec4b4d6564156ab5152651232504&q=${lat},${lng}&days=${days}&aqi=no&alerts=no`)
+        const response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=3d7ec4b4d6564156ab5152651232504&q=${lat},${lng}&days=${days}&aqi=no&alerts=no`)
         const data = await response.json();
 
         const forecastCurrentDay = data.forecast.forecastday[0].hour;
@@ -43,7 +48,13 @@ const getWeather = async(lat, lng, days) => {
             'forecastToday': forecastEverySixHours,
             'forecast': forecastDaysProperties
         }
+
         console.log(usedData)
+
+        fillCurrentWeather(usedData);
+        fillTodayWeather(forecastEverySixHours);
+        fillTodayForecastWeather(forecastDaysProperties);
+        fillForecastWeather(forecastDaysProperties);
 
     } catch (error) {
         console.error(error);
@@ -51,5 +62,3 @@ const getWeather = async(lat, lng, days) => {
 }
 
 export {getWeather}
-
-// getWeather(4.5350, -75.6757, 2);
