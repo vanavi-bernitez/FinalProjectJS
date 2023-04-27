@@ -1,73 +1,75 @@
 <html>
   <head>
     <title>Weather location</title>
-    
-
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="module" src="./script.js"></script>
   </head>
   <body>
     <h3>My Google Maps Demo</h3>
 
-
     <div id="mapContainer">
       <input id="searchBox" class="controls" type="text" placeholder="Search city" />
       <div id="map"></div>
     </div>
     
-
-    <div id="currentWeatherCont">
-      <div>
-        <p id="city" >((City))</p>
-        <p id="country">((Country))</p>
-      </div>
-      <div>
-        <div> 
-          <img id="conditionIcon" src="./images/loading.png" alt="weather condition" />
-          <p id="temperature"><span id="tempContent">((Temperature))</span> °C</p>       
+    <div id="displayedInformation">
+      <div id="currentWeatherCont">
+        <div>
+          <p id="city" >((City))</p>
+          <p id="country">((Country))</p>
         </div>
         <div>
-          <p id="condition">((Condition))</p>
-        </div>
-        <div>
-          <div>
-            <p class="left">Feels like</p>
-            <p class="right"><span id="tempFeels">((Feels Temp))</span> °C</p>
+          <div> 
+            <img id="conditionIcon" src="./images/loading.png" alt="weather condition" />
+            <p id="temperature"><span id="tempContent">((Temperature))</span> °C</p>       
           </div>
           <div>
-            <p class="left">UV</p>
-            <p id="uv" class="right">((uv))</p>
+            <p id="condition">((Condition))</p>
+          </div>
+          <div>
+            <div>
+              <p class="left">Feels like</p>
+              <p class="right"><span id="tempFeels">((Feels Temp))</span> °C</p>
+            </div>
+            <div>
+              <p class="left">UV</p>
+              <p id="uv" class="right">((uv))</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
+      <div id="rightMainContainer">
+        <div id="todayWeatherCont"></div>
 
-    <div id="todayWeatherCont"></div>
-
-
-    <div class="sliderCont">
-      <input type="range" min="0" max="9" value="0" class="slider" id="forecastSlider">
-      <p id="forecastRangeValue">((Value))</p>
-    </div>
-
-
-    <div id="forecastCont">
-      <div id="todayForecast" class="eachForecast">
-        <p>Today</p>
-        <img id="todayForecastConditionIcon" src="./images/loading.png" alt="weather condition" />
-        <p id="todayForecastCondition">((Condition))</p>
-        <div>
-          <p class="left">Temperature</p>
-          <p class="right"><span id="todayForecastTemperature">((Feels Temp))</span> °C</p>
+        <div class="sliderCont">
+          <input type="range" min="0" max="9" value="0" class="slider" id="forecastSlider">
+          <p id="forecastRangeValue">((Value))</p>
         </div>
-        <div>
-          <p class="left">UV</p>
-          <p id="todayForecastUV" class="right">((uv))</p>
+
+        <div id="forecastCont">
+          <div id="todayForecast" class="eachForecast">
+            <p>Today</p>
+            <img id="todayForecastConditionIcon" src="./images/loading.png" alt="weather condition" />
+            <p id="todayForecastCondition">((Condition))</p>
+            <div>
+              <p class="left">Temperature</p>
+              <p class="right"><span id="todayForecastTemperature">((Feels Temp))</span> °C</p>
+            </div>
+            <div>
+              <p class="left">UV</p>
+              <p id="todayForecastUV" class="right">((uv))</p>
+            </div>
+          </div>
+          <div id="forecast"></div>
         </div>
       </div>
-      <div id="forecast"></div>
     </div>
+
+    
+
+
+    
 
 
     <template id="todayWeatherTemplate">

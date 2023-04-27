@@ -33,6 +33,10 @@ html, body {
     border-style: solid;
 }
 
+#displayedInformation {
+    display: flex;
+}
+
 #currentWeatherCont {
     border-style: solid;
 }
