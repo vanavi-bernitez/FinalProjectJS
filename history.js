@@ -1,15 +1,14 @@
+import { getWeatherHistorical } from "./modules/getWeatherHistorical.js";
 let map;
 let latitude = 4.5350;
 let longitude = -75.6757;
-let forecastDays = 1;
+let dateValue;
+let date = document.querySelector('#dateInput');
 
 const initMap = async () => {
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
     const { SearchBox } = await google.maps.importLibrary("places");
-
-
-    
 
     const position = { lat: latitude, lng: longitude };
     map = new Map(document.querySelector("#map"), {
@@ -65,8 +64,13 @@ const initMap = async () => {
             longitude = place.geometry.location.lng();
             
             console.log(latitude, longitude)
-        
-            // getWeather(latitude, longitude, forecastDays);
+
+            date.addEventListener('input', () => {
+                dateValue = date.value;
+                getWeatherHistorical(latitude,longitude, dateValue)
+                console.log(dateValue);
+            });
+ 
         });
 
         map.fitBounds(bounds);
@@ -75,17 +79,17 @@ const initMap = async () => {
         
         console.log(latitude, longitude)
 
+        date.addEventListener('input', () => {
+            dateValue = date.value;
+            getWeatherHistorical(latitude,longitude, dateValue)
+            console.log(dateValue);
+        });
         
-        // getWeather(latitude, longitude, forecastDays);
-
 }
 
 initMap();
 
 
-let date = document.querySelector('#dateInput');
 
-date.addEventListener('input', () => {
-    const dateValue = date.value;
-    console.log(dateValue);
-});
+
+
