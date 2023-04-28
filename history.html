@@ -12,28 +12,35 @@
             <a href="./forecast.html">FORECAST</a>
         </header>
 
-        <h3>HISTORICAL LOCATION WEATHER</h3>
+        <section>
+            <div class="title">
+                <h3>HISTORICAL LOCATION WEATHER</h3>
+            </div>
+            
 
-        <div id="mapContainer">
-            <input id="searchBox" class="controls" type="text" placeholder="Search city" />
-            <div id="map"></div>
-        </div>
+            <div class="generalContainer">
+                <div id="mapContainer">
+                    <input id="searchBox" class="controls" type="text" placeholder="Search city" />
+                    <div id="map"></div>
+                </div>
+    
+                <div id="dateChartContainer">
+                    <div id="informationCotainer">
+                        <label for="dateInput">Date:</label>
+                        <input type="date" id="dateInput" name="dateInput">
+                    </div>
+        
+                    <div id="forecastChart"></div>
+                </div>
+            </div>
 
-        <div id="informationCotainer">
-            <label for="dateInput">Date:</label>
-            <input type="date" id="dateInput" name="dateInput">
-        </div>
+        </section>
 
-        <div id="forecastChart" style="width: 550px; height: 350px"></div>
+        <footer>
+            FOOTER SPACE
+        </footer>
 
-
-
-
-
-
-
-
-
+        
 
 
         <script>

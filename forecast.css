@@ -147,6 +147,7 @@ section {
     margin: 0;
 }
 
+
 #thirdGeneralContainer {
     display: flex;
     flex-direction: column;
@@ -154,6 +155,7 @@ section {
     align-items: center;
     text-align: center;
 }
+
 #thirdGeneralContainer h3, #thirdGeneralContainer p {
     font-size: 140%;
     font-weight: bolder;
@@ -178,16 +180,20 @@ section {
     justify-content: center;
     align-items: center;
 }
+
 #todayWeatherCont {
     display: flex;
     width: 100%;   
     justify-content: space-around;
     margin-bottom: 2%;       
 }
+
 #forecast {
     min-width: 10vw;
     display: flex;
+
 }
+
 #todayForecast {
     border-style: solid;
     border-color: white;
@@ -197,7 +203,8 @@ section {
     border-radius: 1em;
     min-width: 10vw;
 }
-.eachForecast {
+
+ .eachForecast {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 2em;
     background-color: rgba(255, 255, 255, 0.4);
@@ -206,7 +213,9 @@ section {
     opacity: 0.8;
     width: 10vw;
     min-width: 5vw;
+
 }
+
 .centered  {
     text-align: center;  
     height: 25vh;
