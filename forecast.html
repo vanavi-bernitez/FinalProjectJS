@@ -16,19 +16,16 @@
       <a href="./history.html">HISTORY</a>
     </header>
 
-    
-
-
     <section>
-      <h3>FORECAST LOCATION WEATHER</h3>
-
-
+      <div class="title">
+        <h3>FORECAST LOCATION WEATHER</h3>
+      </div>
+      
       <div id="firstGeneralContainer">     
         <div id="mapContainer">
           <input id="searchBox" class="controls" type="text" placeholder="Search city" />
           <div id="map"></div>
-        </div>
-    
+        </div> 
         <div id="currentContainer">
           <h3>Current weather</h3>
           <div id="currentWeatherCont">      
@@ -55,20 +52,17 @@
         
         </div>
       </div>
-  
-      
+   
       <div id="secondGeneralContainer">
         <h3>Today forecast</h3>
         <div id="todayWeatherCont"></div> 
       </div>
-
 
       <div id="thirdGeneralContainer">
         <h3 id="forecastRangeLabel">How many days of future predictions do you want to see?</h3>
         <input type="range" min="0" max="9" value="0" class="slider" id="forecastSlider">
         <p id="forecastRangeValue">((Value))</p>
       </div>
-
 
       <div id="fourthGeneralContainer">
         <div id="forecastCont">
@@ -94,6 +88,9 @@
       </div>
     </section>
 
+    <footer>
+      FOOTER SPACE
+    </footer>
 
     <template id="todayWeatherTemplate">
       <div class="eachToday">
@@ -110,11 +107,9 @@
             <p>UV</p>
             <p id="todayUV" class="biggerFont">((uv))</p>
           </div>
-        </div>
-        
+        </div>     
       </div>
     </template>
-
 
     <template id="forecastTemplate">
       <div class="eachForecast" >
@@ -133,8 +128,6 @@
             <p id="forecastUV" class="extraInf forecastFont">((uv))</p>
           </div>
         </div>
-        
-        
       </div>
     </template>
     

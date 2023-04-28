@@ -2,6 +2,13 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
+    background-color: #d3d3d3;
+}
+
+header, footer {
+    
+    margin: 0;
+    height: 100px;
 }
 
 section {
@@ -9,6 +16,22 @@ section {
     background-size: cover;
     width: 100%;
 }
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    
+}
+
+.title h3 {
+    margin-top: 4%;
+    font-size: 200%;
+    font-family: 'Roboto', sans-serif;
+    color: #13005A;
+}
+
 
 #firstGeneralContainer {
     display: flex;
@@ -124,7 +147,6 @@ section {
     margin: 0;
 }
 
-
 #thirdGeneralContainer {
     display: flex;
     flex-direction: column;
@@ -132,7 +154,6 @@ section {
     align-items: center;
     text-align: center;
 }
-
 #thirdGeneralContainer h3, #thirdGeneralContainer p {
     font-size: 140%;
     font-weight: bolder;
@@ -157,20 +178,16 @@ section {
     justify-content: center;
     align-items: center;
 }
-
 #todayWeatherCont {
     display: flex;
     width: 100%;   
     justify-content: space-around;
     margin-bottom: 2%;       
 }
-
 #forecast {
     min-width: 10vw;
     display: flex;
-
 }
-
 #todayForecast {
     border-style: solid;
     border-color: white;
@@ -180,8 +197,7 @@ section {
     border-radius: 1em;
     min-width: 10vw;
 }
-
- .eachForecast {
+.eachForecast {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 2em;
     background-color: rgba(255, 255, 255, 0.4);
@@ -190,130 +206,17 @@ section {
     opacity: 0.8;
     width: 10vw;
     min-width: 5vw;
-
 }
-
 .centered  {
     text-align: center;  
     height: 25vh;
 }
-
 .extraInfContainer {
     padding: 5%;
 }
-
 .extraInf {
     margin: 0;
 }
-
 .forecastFont {
     font-weight: bolder;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* #searchBox {
-    height: 35px;
-    width: 150px;
-    margin-top: 12px;
-    border-radius: 2px;
-    border-style: hidden;
-}
-
- 
-
-
-
-#currentWeatherCont {
-    border-style: solid;
-    min-width: 30vw;
-    width: 30vw;
-    height: 90%; 
-}
-
-#location {
-    display: flex;
-    justify-content: space-around;
-    border-style: solid;
-}
-
-#iconAndTemp {
-    display: flex;
-    justify-content: center;
-    border-style: solid;
-}
-
-#condition {
-    text-align: center;
-    border-style: solid;   
-}
-
-#feelsAndUV {
-    display: flex;
-    justify-content: space-around;
-}
-
-#feelsAndUV p {
-    text-align: center;
-    border-style: solid;
-}
-
-#currentWeatherContainer {
-    height: 90%;
-    width: 60vw;
-    min-width: 60vw;
-    border-style: solid;
-    display: flex;
-    justify-content: center;
-    border-color: purple;
-}
-
-.eachToday {
-    border-style: solid;
-    border-color: red;
-    width: 25%;
-    
-}
-
-.sliderCont {
-    border-style: solid;
-    display: flex;
-}
-
-.slider {
-    width: 25vw;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-}
-
-.slider:hover {
-    opacity: 1;
-    cursor: pointer;
-}
-
-
-#forecastCont {
-    border-style: solid; 
-    display: flex;
-}
-
-#forecast {
-    border-style: solid;
-    display: flex;
-} */
