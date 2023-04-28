@@ -2,6 +2,12 @@
   <head>
     <title>Forecast weather</title>
     <link rel="stylesheet" type="text/css" href="./forecast.css" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:wght@300&display=swap');
+    </style>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    </style>
     <script type="module" src="./forecast.js"></script>
   </head>
   <body>
@@ -12,77 +18,132 @@
 
     <h3>FORECAST LOCATION WEATHER</h3>
 
-    <div id="mapContainer">
-      <input id="searchBox" class="controls" type="text" placeholder="Search city" />
-      <div id="map"></div>
+
+    <section>
+      
+    </section>
+
+
+
+    <div id="firstGeneralContainer">     
+      <div id="mapContainer">
+        <input id="searchBox" class="controls" type="text" placeholder="Search city" />
+        <div id="map"></div>
+      </div>
+  
+      <div id="currentContainer">
+        <h3>Current weather</h3>
+        <div id="currentWeatherCont">      
+          <div id="location">
+            <p id="city" class="biggerFont">((City))</p>
+            <p id="country" class="biggerFont">((Country))</p>
+          </div>
+          <div id="iconAndTemp">
+            <img id="conditionIcon" src="./images/loading.png" alt="weather condition" />
+            <p id="temperature"><span id="tempContent" class="biggerFont">((Temperature))</span> °C</p>
+          </div>
+          <p id="condition" class="biggerFont">((Condition))</p>
+          <div id="feelsAndUV">
+            <div>
+              <p>Feels like</p>
+              <p><span id="tempFeels" class="biggerFont">((Feels Temp))</span> °C</p>
+            </div>
+            <div>
+              <p>UV</p>
+              <p id="uv" class="biggerFont">((uv))</p>
+            </div>
+          </div>
+        </div>
+      
+      </div>
     </div>
+
+    
+
+    <div id="secondGeneralContainer">
+      <h3>Today forecast</h3>
+      <div id="todayWeatherCont"></div> 
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
     
     <div id="displayedInformation">
-      <div id="currentWeatherCont">
-        <div>
-          <p id="city" >((City))</p>
-          <p id="country">((Country))</p>
-        </div>
-        <div>
-          <div> 
-            <img id="conditionIcon" src="./images/loading.png" alt="weather condition" />
-            <p id="temperature"><span id="tempContent">((Temperature))</span> °C</p>       
-          </div>
-          <div>
-            <p id="condition">((Condition))</p>
-          </div>
-          <div>
-            <div>
-              <p class="left">Feels like</p>
-              <p class="right"><span id="tempFeels">((Feels Temp))</span> °C</p>
-            </div>
-            <div>
-              <p class="left">UV</p>
-              <p id="uv" class="right">((uv))</p>
-            </div>
-          </div>
-        </div>
-      </div>
+     
 
       <div id="rightMainContainer">
-        <div id="todayWeatherCont"></div>
-
-        <div class="sliderCont">
-          <input type="range" min="0" max="9" value="0" class="slider" id="forecastSlider">
-          <p id="forecastRangeValue">((Value))</p>
-        </div>
-
-        <div id="forecastCont">
-          <div id="todayForecast" class="eachForecast">
-            <p>Today</p>
-            <img id="todayForecastConditionIcon" src="./images/loading.png" alt="weather condition" />
-            <p id="todayForecastCondition">((Condition))</p>
-            <div>
-              <p class="left">Temperature</p>
-              <p class="right"><span id="todayForecastTemperature">((Feels Temp))</span> °C</p>
-            </div>
-            <div>
-              <p class="left">UV</p>
-              <p id="todayForecastUV" class="right">((uv))</p>
-            </div>
-          </div>
-          <div id="forecast"></div>
-        </div>
+          
       </div>
     </div>
 
-    <template id="todayWeatherTemplate">
-      <div class="eachToday">
-        <img id="todayConditionIcon" src="./images/loading.png" alt="weather condition" />
-        <p id="todayCondition">((Condition))</p>
+
+    <div class="sliderCont">
+      <input type="range" min="0" max="9" value="0" class="slider" id="forecastSlider">
+      <p id="forecastRangeValue">((Value))</p>
+    </div>
+
+    <div id="forecastCont">
+      <div id="todayForecast" class="eachForecast">
+        <p>Today</p>
+        <img id="todayForecastConditionIcon" src="./images/loading.png" alt="weather condition" />
+        <p id="todayForecastCondition">((Condition))</p>
         <div>
           <p class="left">Temperature</p>
-          <p class="right"><span id="todayTemperature">((Temperature))</span> °C</p>
+          <p class="right"><span id="todayForecastTemperature">((Feels Temp))</span> °C</p>
         </div>
         <div>
           <p class="left">UV</p>
-          <p id="todayUV" class="right">((uv))</p>
+          <p id="todayForecastUV" class="right">((uv))</p>
         </div>
+      </div>
+      <div id="forecast"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <template id="todayWeatherTemplate">
+      <div class="eachToday">
+        <div class="conditionTodayForecast">
+          <img id="todayConditionIcon" src="./images/loading.png" alt="weather condition" />
+          <p id="todayCondition" class="biggerFont">((Condition))</p>
+        </div>
+        <div class="additionalInfTodayForecast">
+          <div>
+            <p>Temperature</p>
+            <p><span id="todayTemperature" class="biggerFont">((Temperature))</span> °C</p>
+          </div>
+          <div>
+            <p>UV</p>
+            <p id="todayUV" class="biggerFont">((uv))</p>
+          </div>
+        </div>
+        
       </div>
     </template>
 

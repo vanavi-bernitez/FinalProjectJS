@@ -15,10 +15,10 @@ const initMap = async () => {
   forecastRangeValue.innerHTML = forecastSlider.value;
   forecastDays = forecastSlider.value
 
-  forecastSlider.oninput = () => {
+  forecastSlider.oninput = function () { //dont change it viviana
     forecastRangeValue.innerHTML = this.value;
     forecastDays = parseInt(this.value) + 1;
-    getWeatherForecast(latitude, longitude, forecastDays); //changed forecastDays
+    getWeatherForecast(latitude, longitude, forecastDays); //changed forecastDAys
   }
 
 
