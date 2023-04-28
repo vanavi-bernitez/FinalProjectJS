@@ -12,7 +12,8 @@ const fillDateForecast = (forecastTemp) => {
         let options = {
             title: 'Day forecast',
             curveType: 'function',
-            legend: { position: 'bottom' }
+            legend: { position: 'bottom' },
+            backgroundColor: 'none'
         };    
         let chart = new google.visualization.LineChart(document.querySelector('#forecastChart'));
         chart.draw(data, options);

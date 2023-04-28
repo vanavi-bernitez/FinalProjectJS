@@ -5,10 +5,47 @@ html, body {
     background-color: #d3d3d3;
 }
 
-header, footer {
-    
+header, footer { 
     margin: 0;
-    height: 100px;
+    height: 70px;
+    background-color: #13005A;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header a {
+    width: 10vw;
+    text-align: center;
+    padding: 1em; 
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to left, #838DBF, #a9b3e9); 
+    font-size: 100%;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+header a:hover {
+    color: #00337C;
+    background: linear-gradient(to right, #838DBF, #a9b3e9);   
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+    color: white;
 }
 
 section {
@@ -179,6 +216,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1%;
 }
 
 #todayWeatherCont {
