@@ -12,13 +12,9 @@ const getWeatherHistorical = async(lat, lng, date) => {
                 forecastTemp.push(temp); 
             }   
         });
-
-        fillDateForecast(forecastTemp)
-
-        console.log(forecastTemp)
-    
+        fillDateForecast(forecastTemp)    
     } catch (error) {
-        console.log(error)
+        window.alert(`Error fetching data: ${error}`);
     }
 }
 

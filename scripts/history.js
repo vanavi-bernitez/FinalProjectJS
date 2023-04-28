@@ -1,4 +1,4 @@
-import { getWeatherHistorical } from "./modules/getWeatherHistorical.js";
+import { getWeatherHistorical } from "../modules/getWeatherHistorical.js";
 let map;
 let latitude = 4.5350;
 let longitude = -75.6757;
@@ -9,7 +9,6 @@ const initMap = async () => {
     const { Map } = await google.maps.importLibrary("maps");
     const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
     const { SearchBox } = await google.maps.importLibrary("places");
-
     const position = { lat: latitude, lng: longitude };
     map = new Map(document.querySelector("#map"), {
         zoom: 13,
@@ -26,7 +25,6 @@ const initMap = async () => {
     marker.addListener('gmp-click', () => {
         startInfoWindow.open(map, marker)
     });
-
     const startSearchBoxOptions = {
         types: ['cities']
     }
@@ -44,8 +42,7 @@ const initMap = async () => {
         const bounds = new google.maps.LatLngBounds();
         places.forEach((place) => {           
             if (!place.geometry || !place.geometry.location) {
-                // Entered Place that was not suggested and pressed Enter key, or the Place Details request failed.
-                window.alert("No details available for input: '" + place.name + "'");
+                window.alert(`No details available for input: ${place.name}`);
                 return;
             }
             markers.push(
@@ -62,29 +59,17 @@ const initMap = async () => {
             }
             latitude = place.geometry.location.lat();
             longitude = place.geometry.location.lng();
-            
-            console.log(latitude, longitude)
-
             date.addEventListener('input', () => {
                 dateValue = date.value;
                 getWeatherHistorical(latitude,longitude, dateValue)
-                console.log(dateValue);
             });
- 
         });
-
-        map.fitBounds(bounds);
-            
+        map.fitBounds(bounds);           
         });
-        
-        console.log(latitude, longitude)
-
         date.addEventListener('input', () => {
             dateValue = date.value;
             getWeatherHistorical(latitude,longitude, dateValue)
-            console.log(dateValue);
-        });
-        
+        });       
 }
 
 initMap();

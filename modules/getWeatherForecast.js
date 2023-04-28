@@ -48,16 +48,13 @@ const getWeatherForecast = async(lat, lng, days) => {
             'forecastToday': forecastEverySixHours,
             'forecast': forecastDaysProperties
         }
-
-        console.log(usedData)
-
         fillCurrentWeather(usedData);
         fillTodayWeather(forecastEverySixHours);
         fillTodayForecastWeather(forecastDaysProperties);
         fillForecastWeather(forecastDaysProperties);
 
     } catch (error) {
-        console.error(error);
+        window.alert(`Error fetching data: ${error}`);
     }
 }
 
