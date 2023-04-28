@@ -16,115 +16,83 @@
       <a href="./history.html">HISTORY</a>
     </header>
 
-    <h3>FORECAST LOCATION WEATHER</h3>
+    
 
 
     <section>
-      
-    </section>
+      <h3>FORECAST LOCATION WEATHER</h3>
 
 
-
-    <div id="firstGeneralContainer">     
-      <div id="mapContainer">
-        <input id="searchBox" class="controls" type="text" placeholder="Search city" />
-        <div id="map"></div>
+      <div id="firstGeneralContainer">     
+        <div id="mapContainer">
+          <input id="searchBox" class="controls" type="text" placeholder="Search city" />
+          <div id="map"></div>
+        </div>
+    
+        <div id="currentContainer">
+          <h3>Current weather</h3>
+          <div id="currentWeatherCont">      
+            <div id="location">
+              <p id="city" class="biggerFont">((City))</p>
+              <p id="country" class="biggerFont">((Country))</p>
+            </div>
+            <div id="iconAndTemp">
+              <img id="conditionIcon" src="./images/loading.png" alt="weather condition" />
+              <p id="temperature"><span id="tempContent" class="biggerFont">((Temperature))</span> °C</p>
+            </div>
+            <p id="condition" class="biggerFont">((Condition))</p>
+            <div id="feelsAndUV">
+              <div>
+                <p>Feels like</p>
+                <p><span id="tempFeels" class="biggerFont">((Feels Temp))</span> °C</p>
+              </div>
+              <div>
+                <p>UV</p>
+                <p id="uv" class="biggerFont">((uv))</p>
+              </div>
+            </div>
+          </div>
+        
+        </div>
       </div>
   
-      <div id="currentContainer">
-        <h3>Current weather</h3>
-        <div id="currentWeatherCont">      
-          <div id="location">
-            <p id="city" class="biggerFont">((City))</p>
-            <p id="country" class="biggerFont">((Country))</p>
-          </div>
-          <div id="iconAndTemp">
-            <img id="conditionIcon" src="./images/loading.png" alt="weather condition" />
-            <p id="temperature"><span id="tempContent" class="biggerFont">((Temperature))</span> °C</p>
-          </div>
-          <p id="condition" class="biggerFont">((Condition))</p>
-          <div id="feelsAndUV">
-            <div>
-              <p>Feels like</p>
-              <p><span id="tempFeels" class="biggerFont">((Feels Temp))</span> °C</p>
-            </div>
-            <div>
-              <p>UV</p>
-              <p id="uv" class="biggerFont">((uv))</p>
-            </div>
-          </div>
-        </div>
       
+      <div id="secondGeneralContainer">
+        <h3>Today forecast</h3>
+        <div id="todayWeatherCont"></div> 
       </div>
-    </div>
-
-    
-
-    <div id="secondGeneralContainer">
-      <h3>Today forecast</h3>
-      <div id="todayWeatherCont"></div> 
-    </div>
 
 
-
-
-
-
-
-
-
-
-
-
-    
-    <div id="displayedInformation">
-     
-
-      <div id="rightMainContainer">
-          
+      <div id="thirdGeneralContainer">
+        <h3 id="forecastRangeLabel">How many days of future predictions do you want to see?</h3>
+        <input type="range" min="0" max="9" value="0" class="slider" id="forecastSlider">
+        <p id="forecastRangeValue">((Value))</p>
       </div>
-    </div>
 
 
-    <div class="sliderCont">
-      <input type="range" min="0" max="9" value="0" class="slider" id="forecastSlider">
-      <p id="forecastRangeValue">((Value))</p>
-    </div>
-
-    <div id="forecastCont">
-      <div id="todayForecast" class="eachForecast">
-        <p>Today</p>
-        <img id="todayForecastConditionIcon" src="./images/loading.png" alt="weather condition" />
-        <p id="todayForecastCondition">((Condition))</p>
-        <div>
-          <p class="left">Temperature</p>
-          <p class="right"><span id="todayForecastTemperature">((Feels Temp))</span> °C</p>
-        </div>
-        <div>
-          <p class="left">UV</p>
-          <p id="todayForecastUV" class="right">((uv))</p>
+      <div id="fourthGeneralContainer">
+        <div id="forecastCont">
+          <div id="todayForecast" class="eachForecast">
+            <div class="centered">
+              <p class="forecastFont">Today's average weather</p>
+              <img id="todayForecastConditionIcon" src="./images/loading.png" alt="weather condition" />
+              <p id="todayForecastCondition" class="forecastFont">((Condition))</p>
+            </div>
+            <div class="extraInfContainer">
+              <div>
+                <p class="extraInf">Temperature</p>
+                <p class="extraInf"><span id="todayForecastTemperature" class="forecastFont">((Feels Temp))</span> °C</p>
+              </div>
+              <div>
+                <p class="extraInf">UV</p>
+                <p id="todayForecastUV" class="extraInf forecastFont">((uv))</p>
+              </div>
+            </div>     
+          </div>
+          <div id="forecast"></div>
         </div>
       </div>
-      <div id="forecast"></div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </section>
 
 
     <template id="todayWeatherTemplate">
@@ -147,19 +115,26 @@
       </div>
     </template>
 
+
     <template id="forecastTemplate">
       <div class="eachForecast" >
-        <p id="forecastDate" >((Date))</p>
-        <img id="forecastConditionIcon" src="./images/loading.png" alt="weather condition" />
-        <p id="forecastCondition">((Condition))</p>
-        <div>
-          <p class="left">Temperature</p>
-          <p class="right"><span id="forecastTemperature">((Feels Temp))</span> °C</p>
+        <div class="centered">
+          <p id="forecastDate" class="forecastFont">((Date))</p>
+          <img id="forecastConditionIcon" src="./images/loading.png" alt="weather condition" />
+          <p id="forecastCondition" class="forecastFont">((Condition))</p>
         </div>
-        <div>
-          <p class="left">UV</p>
-          <p id="forecastUV" class="right">((uv))</p>
+        <div class="extraInfContainer">
+          <div>
+            <p class="extraInf">Temperature</p>
+            <p class="extraInf"><span id="forecastTemperature" class="forecastFont">((Feels Temp))</span> °C</p>
+          </div>
+          <div>
+            <p class="extraInf">UV</p>
+            <p id="forecastUV" class="extraInf forecastFont">((uv))</p>
+          </div>
         </div>
+        
+        
       </div>
     </template>
     
