@@ -1,27 +1,22 @@
-import { getWeatherForecast } from "./modules/getWeatherForecast.js";
+import { getWeatherForecast } from "../modules/getWeatherForecast.js";
 let map;
 let latitude = 4.5350;
 let longitude = -75.6757;
 let forecastDays = 1;
 
 const initMap = async () => {
-
   const { Map } = await google.maps.importLibrary("maps");
   const { AdvancedMarkerView } = await google.maps.importLibrary("marker");
   const { SearchBox } = await google.maps.importLibrary("places");
-
   let forecastSlider = document.querySelector("#forecastSlider");
   let forecastRangeValue = document.querySelector("#forecastRangeValue");
   forecastRangeValue.innerHTML = forecastSlider.value;
   forecastDays = forecastSlider.value
-
-  forecastSlider.oninput = function () { //dont change it viviana
+  forecastSlider.oninput = function () { //Don't use arrow function
     forecastRangeValue.innerHTML = this.value;
     forecastDays = parseInt(this.value) + 1;
-    getWeatherForecast(latitude, longitude, forecastDays); //changed forecastDAys
+    getWeatherForecast(latitude, longitude, forecastDays); 
   }
-
-
   const position = { lat: latitude, lng: longitude };
   map = new Map(document.querySelector("#map"), {
     zoom: 13,
@@ -38,7 +33,6 @@ const initMap = async () => {
   marker.addListener('gmp-click', () => {
     startInfoWindow.open(map, marker)
   });
-
   const startSearchBoxOptions = {
     types: ['cities']
   }
@@ -56,8 +50,7 @@ const initMap = async () => {
     const bounds = new google.maps.LatLngBounds();
     places.forEach((place) => {
       if (!place.geometry || !place.geometry.location) {
-        // Entered Place that was not suggested and pressed Enter key, or the Place Details request failed.
-        window.alert("No details available for input: '" + place.name + "'");
+        window.alert(`No details available for input: ${place.name}`);
         return;
       }
       markers.push(
@@ -74,18 +67,11 @@ const initMap = async () => {
       }
       latitude = place.geometry.location.lat();
       longitude = place.geometry.location.lng();
-      
-      console.log(latitude, longitude)
-
-      getWeatherForecast(latitude, longitude, forecastDays); //changed city
+      getWeatherForecast(latitude, longitude, forecastDays); 
     });
-    map.fitBounds(bounds);
-    
-
+    map.fitBounds(bounds);   
   });
-
-  console.log(latitude, longitude)
-  getWeatherForecast(latitude, longitude, forecastDays); //center 
+  getWeatherForecast(latitude, longitude, forecastDays); 
 }
 
 initMap();

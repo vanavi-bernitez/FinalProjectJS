@@ -1,0 +1,124 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    background-color: #d3d3d3;
+}
+
+header, footer {
+    margin: 0;
+    height: 70px;
+    background-color: #13005A;
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header a {
+    width: 10vw;
+    text-align: center;
+    padding: 1em; 
+    cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to left, #838DBF, #a9b3e9); 
+    font-size: 100%;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+
+a:hover {
+    color: #00337C;
+    background: linear-gradient(to right, #838DBF, #a9b3e9);   
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    text-align: center;
+    margin: 0;
+    color: white;
+}
+
+section {
+    background-image: url(https://iili.io/H8Q8Ex4.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    height: 10vh;
+    font-size: 120%;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+}
+
+.generalContainer {
+    display: flex;
+    height: 80vh;
+    width: 100%;
+}
+
+#mapContainer {
+    height: 100%;
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+}
+#map {
+    height: 90%; 
+    width: 55vw;  
+    margin: 2%; 
+}
+#searchBox {
+    height: 35px;
+    width: 150px;
+    margin-top: 12px;
+    border-radius: 2px;
+    border-style: hidden;
+}
+#infoWindow {
+    color: #4285F4;
+}
+
+#dateChartContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#informationCotainer {
+    height: 10vh;
+}
+
+#informationCotainer input {
+    height: 30px;
+    width: 120px;
+    background: none;
+    border-radius: 1em;
+    border-color: #FFFFFF;
+    font-weight: bold;
+}
+
+#forecastChart {
+    margin-right: 2%;
+    width: 550px;
+    height: 350px;
+    background: none;
+}
