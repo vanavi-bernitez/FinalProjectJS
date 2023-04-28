@@ -1,0 +1,22 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 400px; 
+    width: 100%;
+}
+
+#searchBox {
+    height: 35px;
+    width: 150px;
+    margin-top: 12px;
+    border-radius: 2px;
+    border-style: hidden;
+}
+
+#infoWindow {
+    color: #4285F4;
+}
