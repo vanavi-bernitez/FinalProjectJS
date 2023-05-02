@@ -9,7 +9,7 @@ html, body {
 header, footer {
     margin: 0;
     height: 70px;
-    background-color: #13005A;
+    background-color: #264454;
 }
 
 header {
@@ -25,14 +25,14 @@ header a {
     cursor: pointer;
     border-radius: 5em;
     color: #fff;
-    background: linear-gradient(to left, #838DBF, #a9b3e9); 
+    background: linear-gradient(to right, #33697e, #4fb5d4); 
     font-size: 100%;
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    text-decoration: none;
 }
 
 a:hover {
-    color: #00337C;
-    background: linear-gradient(to right, #838DBF, #a9b3e9);   
+    background: linear-gradient(to right, #4fb5d4, #33697e);   
 }
 
 footer {
