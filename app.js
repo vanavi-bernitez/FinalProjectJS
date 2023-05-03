@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import { userRouter } from './routes/userRouter.js';
 
 const app = express();
 
@@ -8,58 +9,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 
-// Callback functions -> Handlers
-const getAllUsers = (request, response) => {
-    response.status(500).json({
-        status: 'error',
-        message: 'Route is not yet defined for getAllUsers'
-    });
-}
-
-const createUser = (request, response) => {
-    response.status(500).json({
-        status: 'error',
-        message: 'Route not yet defined for createUser'
-    })
-}
-
-const getUser = (request, response) => {
-    response.status(500).json({
-        status: 'error',
-        message: 'Route not yet defined for getUser'
-    })
-}
-
-const updateUser = (request, response) => {
-    response.status(500).json({
-        status: 'error',
-        message: 'Route not yet defined for updateUser'
-    })
-}
-
-const deleteUser = (request, response) => {
-    response.status(500).json({
-        status: 'error',
-        message: 'Route not yet defined for deleteUser'
-    })
-}
-
-
-// Routes --> like mini apps
-const userRouter = express.Router();
-
-userRouter
-    .route('/')
-    .get(getAllUsers)
-    .post(createUser);
-
-userRouter
-    .route('/:id')
-    .get(getUser)
-    .patch(updateUser)
-    .delete(deleteUser);
-
-
+// Mount route --> works like declaration of middleware
 app.use('/api/v1/users', userRouter);
 
 
