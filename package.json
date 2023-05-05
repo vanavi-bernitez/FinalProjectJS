@@ -1,16 +1,18 @@
 {
-    "name": "weatherpoint",
-    "version": "1.0.0",
-    "description": "weather app",
-    "main": "app.js",
-    "scripts": {
-        "start:dev": "nodemon server.js",
-        "start:prod": "SET NODE_ENV=production & nodemon server.js" 
-    },
-    "type": "module",
-    "dependencies": {
-        "dotenv": "^16.0.3",
-        "express": "^4.18.2",
-        "morgan": "^1.10.0"
-    }
+  "name": "weatherpoint",
+  "version": "1.0.0",
+  "description": "weather app",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "SET NODE_ENV=production & nodemon server.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^5.4.0",
+    "mongoose": "^5.13.17",
+    "morgan": "^1.10.0"
+  }
 }
