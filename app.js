@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import { userRouter } from "./routes/userRouter.js";
-import dotenv from "dotenv"; //the video lies :( i yes need to declare this in app.js
+import dotenv from "dotenv"; //the video lies :( i do need to declare this in app.js
 dotenv.config({ path: "./config.env" });
 
 const app = express();

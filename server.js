@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config({ path: "./config.env" });
 
@@ -15,10 +14,11 @@ mongoose
     useCreateIndex: true,
     useFindAndModify: true,
   })
-  .then((myConnection) => {
-    console.log(myConnection.connections);
-    console.log("DB connection successful");
-  });
+  .then(() => console.log("DB connection successful"));
+
+
+
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
