@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config({ path: "./config.env" });
-
+import mongoose from "mongoose";
 import { app } from "./app.js";
 
 const dataBase = process.env.DATABASE.replace(
@@ -13,12 +13,9 @@ mongoose
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: true,
+    useUnifiedTopology: true
   })
   .then(() => console.log("DB connection successful"));
-
-
-
-
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {

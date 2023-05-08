@@ -1,15 +1,18 @@
 import express from 'express';
 import * as userController from '../controllers/userController.js'
+import * as authController from '../controllers/authController.js';
 
 // Routes --> like mini apps
 const userRouter = express.Router();
 
 // Param middleware only runs for centain parameter in the URL. As the id
 // goes latter a callback function that cames from userController, that checks the id. Lesson 64
-userRouter.param('id', (request, response, next, idValue) => {
-    console.log(idValue);
-    next();
-})
+// userRouter.param('id', (request, response, next, idValue) => {
+//     console.log(idValue);
+//     next();
+// })
+
+userRouter.post('/signup', authController.signUp)
 
 userRouter
     .route('/')
